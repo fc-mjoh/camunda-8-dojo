@@ -5,7 +5,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
+//@EnableScheduling
 @SpringBootApplication
 public class Camunda8DojoApplication {
 
@@ -22,7 +24,7 @@ public class Camunda8DojoApplication {
     }
 
     public void run(final String... args) {
-        var bpmnProcessId = "order-process"; // or whatever the key is
+        var bpmnProcessId = "order-process-2"; // or whatever the key is
         var event = zeebeClient.newCreateInstanceCommand()
                 .bpmnProcessId(bpmnProcessId)
                 .latestVersion()
