@@ -24,7 +24,7 @@ public class Camunda8DojoApplication {
     }
 
     public void run(final String... args) {
-        var bpmnProcessId = "order-process-2"; // or whatever the key is
+        var bpmnProcessId = "order-process-4"; // or whatever the key is
         var event = zeebeClient.newCreateInstanceCommand()
                 .bpmnProcessId(bpmnProcessId)
                 .latestVersion()
