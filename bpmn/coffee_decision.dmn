@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Coffee_decision_table" name="Coffee_decision" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.34.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.7.0">
+  <inputData id="inStock" name="inStock" />
+  <inputData id="type" name="type" />
+  <decision id="Coffee_decision_1" name="Should Review">
+    <informationRequirement id="InformationRequirement_17kb0tp">
+      <requiredInput href="#inStock" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0dla99t">
+      <requiredInput href="#type" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_19r152u">
+      <input id="InputClause_0gwyenn">
+        <inputExpression id="LiteralExpression_1etg1rb" typeRef="number">
+          <text>price</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1bdd34o" name="shouldReview" typeRef="boolean" />
+      <rule id="DecisionRule_17zsta6">
+        <inputEntry id="UnaryTests_02cb473">
+          <text>&lt; 5000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1txdt6k">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13vvc6z">
+        <inputEntry id="UnaryTests_01xbwqy">
+          <text>&gt;= 5000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1b7qmdk">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0pr755w">
+        <inputEntry id="UnaryTests_05d6fbu">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ukxj7g">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_0oxk8c1" dmnElementRef="inStock">
+        <dc:Bounds height="45" width="125" x="187" y="337" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0v2knqv" dmnElementRef="InformationRequirement_17kb0tp">
+        <di:waypoint x="250" y="337" />
+        <di:waypoint x="220" y="200" />
+        <di:waypoint x="220" y="180" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_131ujlx" dmnElementRef="type">
+        <dc:Bounds height="45" width="125" x="427" y="337" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0gtvbl9" dmnElementRef="InformationRequirement_0dla99t">
+        <di:waypoint x="490" y="337" />
+        <di:waypoint x="280" y="200" />
+        <di:waypoint x="280" y="180" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_05b0gc4" dmnElementRef="Coffee_decision_1">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
