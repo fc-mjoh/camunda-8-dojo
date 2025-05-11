@@ -8,6 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.util.Map;
+
 @Component
 public class NotifyEmployeeWorker {
 
@@ -22,7 +24,8 @@ public class NotifyEmployeeWorker {
     @JobWorker(type = "notifyEmployee")
     public void notifyEmployee(final JobClient client, final ActivatedJob job) {
         LOG.info("notifyEmployee");
-        zeebe.newPublishMessageCommand().messageName("notifyEmployee").withoutCorrelationKey().send().join();
+        Map<String, Object> variables = Map.of("price", job.getVariable("price"), "ursprung", job.getProcessInstanceKey());
+        zeebe.newPublishMessageCommand().messageName("Message_1mjvj6u").correlationKey("Message_1mjvj6u").variables(variables).send().join();
     }
 
 }
